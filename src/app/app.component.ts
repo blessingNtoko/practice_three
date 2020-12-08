@@ -92,7 +92,7 @@ export class AppComponent implements OnInit{
 
     {
       const size = 1;
-      const pcGeo = new THREE.BoxBufferGeometry(size / 3, size * .8, size * .75);
+      const pcGeo = new THREE.BoxBufferGeometry(size / 3, size, size * .75);
       const pc = this.makeInstance(pcGeo, 'black');
       pc.position.set(2, ((size * .8) / 2) + 1, -4);
       this.roomObjArr.push(pc);
@@ -157,34 +157,18 @@ export class AppComponent implements OnInit{
       chair.add(leg2);
       chair.add(leg3);
       chair.add(leg4);
-      chair.position.set(-4, size, -4.3);
+      chair.position.set(0, size, -3);
       back.position.set(-(size / 2) + (size * .05), size / 2, 0);
       leg1.position.set((size / 2) - (size * .05), -size / 2, (size / 2) - size * .05);
       leg2.position.set(-(size / 2) + (size * .05), -size / 2, (size / 2) - (size * .05));
       leg3.position.set((size / 2) - (size * .05), -size / 2, -(size / 2) + (size * .05));
       leg4.position.set(-(size / 2) + (size * .05), -size / 2, -(size / 2) + (size * .05));
+      chair.rotation.y = Math.PI * .5;
       this.scene.add(chair);
       this.roomObjArr.push(chair);
     }
 
     console.log('Objects in room ->', this.roomObjArr);
-
-
-    // {
-    //   const planeSize = 40;
-    //   const texture = this.textureLoad.load('../assets/textures/checker.png');
-    //   texture.wrapS = THREE.RepeatWrapping;
-    //   texture.wrapT = THREE.RepeatWrapping;
-    //   texture.magFilter = THREE.NearestFilter;
-    //   const repeats = planeSize / 2;
-    //   texture.repeat.set(repeats, repeats);
-
-    //   const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
-    //   const planeMesh = this.makeInstance(planeGeo, 'white', texture, THREE.DoubleSide);
-    //   console.log('Plane Mesh ->', planeMesh);
-
-    //   planeMesh.rotation.x = Math.PI * -.5;
-    // }
 
     window.addEventListener('resize', () => {
       this.renderer.setSize(window.innerWidth, window.innerHeight);

@@ -142,7 +142,6 @@ export class AppComponent implements OnInit{
     }
 
     {
-      const texture = this.textureLoad.load('../assets/textures/couch.jpg');
       const size = 1;
       const chair = new THREE.Object3D();
       const seatGeo = new THREE.BoxBufferGeometry(size, size / 10, size);

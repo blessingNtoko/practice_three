@@ -16,6 +16,7 @@ export class AppComponent implements OnInit{
   public camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 1000);
   public orbControls = new OrbitControls(this.camera, this.renderer.domElement);
   public textureLoad = new THREE.TextureLoader();
+  public texture = this.textureLoad.load('../assets/textures/stars.jpg');
   public roomObjArr = [];
 
   ngOnInit() {
@@ -38,7 +39,6 @@ export class AppComponent implements OnInit{
     this.addLight('white', 1, 0, 10, 0);
 
     {
-      const texture = this.textureLoad.load('../assets/textures/stars.jpg');
       const cubeSize = 10;
       const cubeGeo = new THREE.BoxBufferGeometry(cubeSize, cubeSize, cubeSize);
       const cubeMesh = this.makeInstance(cubeGeo, 'white', null, THREE.BackSide);
@@ -102,10 +102,10 @@ export class AppComponent implements OnInit{
     {
       const size = 2;
       const monitorGeo = new THREE.BoxBufferGeometry(size * .7, size - 1.2, size / 30);
-      const monitor1 = this.makeInstance(monitorGeo, 'black');
+      const monitor1 = this.makeInstance(monitorGeo, 'white', this.texture);
       monitor1.position.set(.75, ((size - 1.2) / 2) + (4 / 20 + 1.45), -4.5);
       monitor1.rotation.y = Math.PI * -.1;
-      const monitor2 = this.makeInstance(monitorGeo, 'black');
+      const monitor2 = this.makeInstance(monitorGeo, 'white', this.texture);
       monitor2.position.set(-.75, ((size - 1.2) / 2) + (4 / 20 + 1.45), -4.5);
       monitor2.rotation.y = Math.PI * .12;
       this.roomObjArr.push(monitor1);

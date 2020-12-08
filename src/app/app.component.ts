@@ -177,6 +177,7 @@ export class AppComponent implements OnInit{
       const wardrobeGeo = new THREE.BoxBufferGeometry(size + 3, size + 2, size / 4);
       const wardrobe = this.makeInstance(wardrobeGeo, 'white', texture);
       wardrobe.position.set(-1, (size + 2) / 2, size - .62);
+      this.roomObjArr.push(wardrobe);
     }
 
     {
@@ -185,6 +186,8 @@ export class AppComponent implements OnInit{
       const bedGeo = new THREE.BoxBufferGeometry(size - 1.6, size / 15, (size / 4) + 4);
       const bed = this.makeInstance(bedGeo, 'brown', texture);
       bed.position.set(-size + 1.7, (size / 15) / 2, 1.125);
+      this.roomObjArr.push(bed);
+
     }
 
     {
@@ -214,6 +217,7 @@ export class AppComponent implements OnInit{
       leg3.position.set(.2, -size / 15, ((size / 4) + 1));
       leg4.position.set(.2, -size / 15, (-(size / 4) - 1));
       this.scene.add(recliner);
+      this.roomObjArr.push(recliner);
     }
 
     console.log('Objects in room ->', this.roomObjArr);

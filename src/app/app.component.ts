@@ -171,9 +171,16 @@ export class AppComponent implements OnInit{
 
     {
       const size = 5;
-      const wardrobeGeo = new THREE.BoxBufferGeometry(size + 2, size + 2, size / 4);
-      const wardrobe = this.makeInstance(wardrobeGeo, 'black');
-      wardrobe.position.set(-size + (), (size + 2) / 2, size - .62);
+      const wardrobeGeo = new THREE.BoxBufferGeometry(size + 3, size + 2, size / 4);
+      const wardrobe = this.makeInstance(wardrobeGeo, 'lightgrey');
+      wardrobe.position.set(-1, (size + 2) / 2, size - .62);
+    }
+
+    {
+      const size = 5;
+      const bedGeo = new THREE.BoxBufferGeometry(size - 1.6, size / 15, (size / 4) + 4);
+      const bed = this.makeInstance(bedGeo, 'brown');
+      bed.position.set(-size + 1.7, (size / 15) / 2, 1.125);
     }
 
     console.log('Objects in room ->', this.roomObjArr);

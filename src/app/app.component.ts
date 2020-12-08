@@ -67,7 +67,7 @@ export class AppComponent implements OnInit{
       const size = 4;
       const tableGeo = new THREE.BoxBufferGeometry(size / 3 + .5, size / 20, size / 2.85);
       const tableTop = this.makeInstance(tableGeo, 'grey');
-      const tableLegGeo = new THREE.BoxBufferGeometry(size / 20, 1.3, size / 2.75);
+      const tableLegGeo = new THREE.BoxBufferGeometry(size / 50, 1.25, size / 3);
       const tableLeg1 = this.makeInstance(tableLegGeo, 'grey');
       const tableLeg2 = this.makeInstance(tableLegGeo, 'grey');
       sideTable.add(tableTop);

@@ -32,6 +32,7 @@ export class AppComponent implements OnInit{
     this.camera.position.set(0, 0, 10);
     this.camera.lookAt(0, 10, 0);
     this.orbControls.target.set(0, 0, 0);
+    this.orbControls.enableDamping = true;
     this.orbControls.update();
 
     this.addLight('white', 1, 0, 10, 0);
@@ -129,12 +130,12 @@ export class AppComponent implements OnInit{
       chair.add(leg2);
       chair.add(leg3);
       chair.add(leg4);
-      chair.position.set(-4, size, -4.3);
       back.position.set(-(size / 2) + (size * .05), size / 2, 0);
       leg1.position.set((size / 2) - (size * .05), -size / 2, (size / 2) - size * .05);
       leg2.position.set(-(size / 2) + (size * .05), -size / 2, (size / 2) - (size * .05));
       leg3.position.set((size / 2) - (size * .05), -size / 2, -(size / 2) + (size * .05));
       leg4.position.set(-(size / 2) + (size * .05), -size / 2, -(size / 2) + (size * .05));
+      chair.position.set(-4, size, -4.3);
       this.scene.add(chair);
       this.roomObjArr.push(chair);
     }
@@ -157,12 +158,12 @@ export class AppComponent implements OnInit{
       chair.add(leg2);
       chair.add(leg3);
       chair.add(leg4);
-      chair.position.set(0, size, -3);
       back.position.set(-(size / 2) + (size * .05), size / 2, 0);
       leg1.position.set((size / 2) - (size * .05), -size / 2, (size / 2) - size * .05);
       leg2.position.set(-(size / 2) + (size * .05), -size / 2, (size / 2) - (size * .05));
       leg3.position.set((size / 2) - (size * .05), -size / 2, -(size / 2) + (size * .05));
       leg4.position.set(-(size / 2) + (size * .05), -size / 2, -(size / 2) + (size * .05));
+      chair.position.set(0, size, -3);
       chair.rotation.y = Math.PI * .5;
       this.scene.add(chair);
       this.roomObjArr.push(chair);

@@ -73,10 +73,10 @@ export class AppComponent implements OnInit{
       sideTable.add(tableTop);
       sideTable.add(tableLeg1);
       sideTable.add(tableLeg2);
+      sideTable.position.set(-size + 1.75, 1.4, -4.1);
       sideTable.rotation.y = Math.PI * -.5;
       tableLeg1.position.set(2 / 2.65, -.75, 0);
       tableLeg2.position.set(-2 / 2.65, -.75, 0);
-      sideTable.position.set(-size + 1.75, 1.4, -4.1);
       this.scene.add(sideTable);
       this.roomObjArr.push(sideTable);
 
@@ -107,6 +107,64 @@ export class AppComponent implements OnInit{
       const monitor2 = this.makeInstance(monitorGeo, 'black');
       monitor2.position.set(-.75, ((size - 1.2) / 2) + (4 / 20 + 1.45), -4.5);
       monitor2.rotation.y = Math.PI * .12;
+      this.roomObjArr.push(monitor1);
+      this.roomObjArr.push(monitor2);
+    }
+
+    {
+      const size = 1;
+      const chair = new THREE.Object3D();
+      const seatGeo = new THREE.BoxBufferGeometry(size, size / 10, size);
+      const seat = this.makeInstance(seatGeo, 'black');
+      const backGeo = new THREE.BoxBufferGeometry(size / 10, size * 1.5, size);
+      const back = this.makeInstance(backGeo, 'black');
+      const legGeo = new THREE.BoxBufferGeometry(size * .1, size, size * .1);
+      const leg1 = this.makeInstance(legGeo, 'black');
+      const leg2 = this.makeInstance(legGeo, 'black');
+      const leg3 = this.makeInstance(legGeo, 'black');
+      const leg4 = this.makeInstance(legGeo, 'black');
+      chair.add(seat);
+      chair.add(back);
+      chair.add(leg1);
+      chair.add(leg2);
+      chair.add(leg3);
+      chair.add(leg4);
+      chair.position.set(-4, size, -4.3);
+      back.position.set(-(size / 2) + (size * .05), size / 2, 0);
+      leg1.position.set((size / 2) - (size * .05), -size / 2, (size / 2) - size * .05);
+      leg2.position.set(-(size / 2) + (size * .05), -size / 2, (size / 2) - (size * .05));
+      leg3.position.set((size / 2) - (size * .05), -size / 2, -(size / 2) + (size * .05));
+      leg4.position.set(-(size / 2) + (size * .05), -size / 2, -(size / 2) + (size * .05));
+      this.scene.add(chair);
+      this.roomObjArr.push(chair);
+    }
+
+    {
+      const size = 1;
+      const chair = new THREE.Object3D();
+      const seatGeo = new THREE.BoxBufferGeometry(size, size / 10, size);
+      const seat = this.makeInstance(seatGeo, 'darkblue');
+      const backGeo = new THREE.BoxBufferGeometry(size / 10, size * 1.5, size);
+      const back = this.makeInstance(backGeo, 'darkblue');
+      const legGeo = new THREE.BoxBufferGeometry(size * .1, size, size * .1);
+      const leg1 = this.makeInstance(legGeo, 'darkblue');
+      const leg2 = this.makeInstance(legGeo, 'darkblue');
+      const leg3 = this.makeInstance(legGeo, 'darkblue');
+      const leg4 = this.makeInstance(legGeo, 'darkblue');
+      chair.add(seat);
+      chair.add(back);
+      chair.add(leg1);
+      chair.add(leg2);
+      chair.add(leg3);
+      chair.add(leg4);
+      chair.position.set(-4, size, -4.3);
+      back.position.set(-(size / 2) + (size * .05), size / 2, 0);
+      leg1.position.set((size / 2) - (size * .05), -size / 2, (size / 2) - size * .05);
+      leg2.position.set(-(size / 2) + (size * .05), -size / 2, (size / 2) - (size * .05));
+      leg3.position.set((size / 2) - (size * .05), -size / 2, -(size / 2) + (size * .05));
+      leg4.position.set(-(size / 2) + (size * .05), -size / 2, -(size / 2) + (size * .05));
+      this.scene.add(chair);
+      this.roomObjArr.push(chair);
     }
 
     console.log('Objects in room ->', this.roomObjArr);

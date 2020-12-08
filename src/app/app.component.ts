@@ -113,12 +113,13 @@ export class AppComponent implements OnInit{
     }
 
     {
+      const texture = this.textureLoad.load('../assets/textures/leather.jpg');
       const size = 1;
       const chair = new THREE.Object3D();
       const seatGeo = new THREE.BoxBufferGeometry(size, size / 10, size);
-      const seat = this.makeInstance(seatGeo, 'black');
+      const seat = this.makeInstance(seatGeo, 'grey', texture);
       const backGeo = new THREE.BoxBufferGeometry(size / 10, size * 1.5, size);
-      const back = this.makeInstance(backGeo, 'black');
+      const back = this.makeInstance(backGeo, 'grey', texture);
       const legGeo = new THREE.BoxBufferGeometry(size * .1, size, size * .1);
       const leg1 = this.makeInstance(legGeo, 'black');
       const leg2 = this.makeInstance(legGeo, 'black');
@@ -141,6 +142,7 @@ export class AppComponent implements OnInit{
     }
 
     {
+      const texture = this.textureLoad.load('../assets/textures/couch.jpg');
       const size = 1;
       const chair = new THREE.Object3D();
       const seatGeo = new THREE.BoxBufferGeometry(size, size / 10, size);

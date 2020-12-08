@@ -83,7 +83,17 @@ export class AppComponent implements OnInit{
     }
 
     {
+      const size = 1;
+      const drawerGeo = new THREE.BoxBufferGeometry(size, size, size);
+      const drawer = this.makeInstance(drawerGeo, 'lightgrey');
+      drawer.position.set(2, .5, -4.1);
+      this.roomObjArr.push(drawer);
+    }
 
+    {
+      const size = 1;
+      const pcGeo = new THREE.BoxBufferGeometry(size / 3, size * .75, size);
+      const pc = this.makeInstance(pcGeo, 'black');
     }
 
     // {

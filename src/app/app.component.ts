@@ -170,17 +170,48 @@ export class AppComponent implements OnInit{
     }
 
     {
+      const texture = this.textureLoad.load('../assets/textures/drobe.jpg');
       const size = 5;
       const wardrobeGeo = new THREE.BoxBufferGeometry(size + 3, size + 2, size / 4);
-      const wardrobe = this.makeInstance(wardrobeGeo, 'lightgrey');
+      const wardrobe = this.makeInstance(wardrobeGeo, 'white', texture);
       wardrobe.position.set(-1, (size + 2) / 2, size - .62);
     }
 
     {
+      const texture = this.textureLoad.load('../assets/textures/bed.jpg');
       const size = 5;
       const bedGeo = new THREE.BoxBufferGeometry(size - 1.6, size / 15, (size / 4) + 4);
-      const bed = this.makeInstance(bedGeo, 'brown');
+      const bed = this.makeInstance(bedGeo, 'brown', texture);
       bed.position.set(-size + 1.7, (size / 15) / 2, 1.125);
+    }
+
+    {
+      const texture = this.textureLoad.load('../assets/textures/couch.jpg');
+      const size = 5;
+      const recliner = new THREE.Object3D();
+      const reclineGeo = new THREE.BoxBufferGeometry(size - 3, size / 15, (size / 4) + 4);
+      const reclinerSeat = this.makeInstance(reclineGeo, 'darkgrey', texture);
+      const reclinerBack = this.makeInstance(reclineGeo, null, texture);
+      const legGeo = new THREE.CylinderBufferGeometry(.1, .1, size / 15);
+      const leg1 = this.makeInstance(legGeo, 'silver');
+      const leg2 = this.makeInstance(legGeo, 'silver');
+      const leg3 = this.makeInstance(legGeo, 'silver');
+      const leg4 = this.makeInstance(legGeo, 'silver');
+      recliner.add(reclinerSeat);
+      recliner.add(reclinerBack);
+      recliner.add(leg1);
+      recliner.add(leg2);
+      recliner.add(leg3);
+      recliner.add(leg4);
+      recliner.position.set(size - .97, ((size / 15) / 2) + size / 15, -.2);
+      reclinerSeat.position.x = -.6;
+      reclinerBack.rotation.z = Math.PI * -.6;
+      reclinerBack.position.set(.5, ((size / 15) / 2) + .7, 0);
+      leg1.position.set(-size + 3.7, -size / 15, ((size / 4) + 1));
+      leg2.position.set(-size + 3.7, -size / 15, (-(size / 4) - 1));
+      leg3.position.set(.2, -size / 15, ((size / 4) + 1));
+      leg4.position.set(.2, -size / 15, (-(size / 4) - 1));
+      this.scene.add(recliner);
     }
 
     console.log('Objects in room ->', this.roomObjArr);

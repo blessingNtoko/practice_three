@@ -67,17 +67,23 @@ export class AppComponent implements OnInit{
       const size = 4;
       const tableGeo = new THREE.BoxBufferGeometry(size / 3 + .5, size / 20, size / 2.85);
       const tableTop = this.makeInstance(tableGeo, 'grey');
-      const tableLegGeo = new THREE.BoxBufferGeometry(size / 50, 1.25, size / 3);
+      const tableLegGeo = new THREE.BoxBufferGeometry(size / 50, 1.45, size / 3);
       const tableLeg1 = this.makeInstance(tableLegGeo, 'grey');
       const tableLeg2 = this.makeInstance(tableLegGeo, 'grey');
       sideTable.add(tableTop);
       sideTable.add(tableLeg1);
       sideTable.add(tableLeg2);
-      tableLeg1.position.set(2 / 1.85, -.75, 0);
-      tableLeg2.position.set(-2 / 1.85, -.75, 0);
       sideTable.rotation.y = Math.PI * -.5;
-      sideTable.position.set(-size + 1.75, 1.4, -4.3);
+      tableLeg1.position.set(2 / 2.65, -.75, 0);
+      tableLeg2.position.set(-2 / 2.65, -.75, 0);
+      sideTable.position.set(-size + 1.75, 1.4, -4.1);
       this.scene.add(sideTable);
+      this.roomObjArr.push(sideTable);
+
+    }
+
+    {
+
     }
 
     // {

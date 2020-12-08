@@ -36,7 +36,7 @@ export class AppComponent implements OnInit{
     this.orbControls.enableDamping = true;
     this.orbControls.update();
 
-    this.addLight('white', 1, 0, 10, 0);
+    this.addLight('white', 1, 0, 12, 0);
 
     {
       const cubeSize = 10;
@@ -169,6 +169,13 @@ export class AppComponent implements OnInit{
       this.roomObjArr.push(chair);
     }
 
+    {
+      const size = 5;
+      const wardrobeGeo = new THREE.BoxBufferGeometry(size + 2, size + 2, size / 4);
+      const wardrobe = this.makeInstance(wardrobeGeo, 'black');
+      wardrobe.position.set(-size + (), (size + 2) / 2, size - .62);
+    }
+
     console.log('Objects in room ->', this.roomObjArr);
 
     window.addEventListener('resize', () => {
@@ -213,7 +220,7 @@ export class AppComponent implements OnInit{
     this.scene.add(light);
 
     if (this.renderer.physicallyCorrectLights) {
-      light.power = 800;
+      light.power = 950;
       light.decay = 2;
       light.distance = Infinity;
     }

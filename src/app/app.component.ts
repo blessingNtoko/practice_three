@@ -67,7 +67,7 @@ export class AppComponent implements OnInit{
       const size = 4;
       const tableGeo = new THREE.BoxBufferGeometry(size / 3 + .5, size / 20, size / 2.85);
       const tableTop = this.makeInstance(tableGeo, 'grey');
-      const tableLegGeo = new THREE.BoxBufferGeometry(size / 50, 1.45, size / 3);
+      const tableLegGeo = new THREE.BoxBufferGeometry(size / 50, 1.3, size / 3);
       const tableLeg1 = this.makeInstance(tableLegGeo, 'grey');
       const tableLeg2 = this.makeInstance(tableLegGeo, 'grey');
       sideTable.add(tableTop);
@@ -84,17 +84,33 @@ export class AppComponent implements OnInit{
 
     {
       const size = 1;
-      const drawerGeo = new THREE.BoxBufferGeometry(size, size, size);
+      const drawerGeo = new THREE.BoxBufferGeometry(size, size, size * .8);
       const drawer = this.makeInstance(drawerGeo, 'lightgrey');
-      drawer.position.set(2, .5, -4.1);
+      drawer.position.set(2, .5, -4);
       this.roomObjArr.push(drawer);
     }
 
     {
       const size = 1;
-      const pcGeo = new THREE.BoxBufferGeometry(size / 3, size * .75, size);
+      const pcGeo = new THREE.BoxBufferGeometry(size / 3, size * .8, size * .75);
       const pc = this.makeInstance(pcGeo, 'black');
+      pc.position.set(2, ((size * .8) / 2) + 1, -4);
+      this.roomObjArr.push(pc);
     }
+
+    {
+      const size = 2;
+      const monitorGeo = new THREE.BoxBufferGeometry(size * .7, size - 1.2, size / 30);
+      const monitor1 = this.makeInstance(monitorGeo, 'black');
+      monitor1.position.set(.75, ((size - 1.2) / 2) + (4 / 20 + 1.45), -4.5);
+      monitor1.rotation.y = Math.PI * -.1;
+      const monitor2 = this.makeInstance(monitorGeo, 'black');
+      monitor2.position.set(-.75, ((size - 1.2) / 2) + (4 / 20 + 1.45), -4.5);
+      monitor2.rotation.y = Math.PI * .12;
+    }
+
+    console.log('Objects in room ->', this.roomObjArr);
+
 
     // {
     //   const planeSize = 40;
